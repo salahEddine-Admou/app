@@ -1,0 +1,12 @@
+Add Jenkins User to Docker Group:
+Add the Jenkins user to the Docker group to grant it permission to access the Docker daemon socket. You can do this by running the following commands:
+sudo usermod -aG docker jenkins
+sudo systemctl restart docker
+sudo systemctl restart jenkins
+
+Adjust Docker Socket Permissions (Less Secure):
+Another approach, though less secure, is to change the permissions of the Docker socket to allow anyone to connect. Note that this can be a security risk, and it's better to use the first approach if possible.
+
+sudo chmod 666 /var/run/docker.sock
+sudo systemctl restart jenkins
+
