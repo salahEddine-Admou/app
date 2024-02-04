@@ -1,22 +1,7 @@
 ---
 - name: "Build and deploy a container with Ansible"
-  hosts: localhost
-  become: true  # Run tasks with elevated privileges (sudo)
-
   tasks:
-    - name: Stop current running container
-      command: docker stop getting-started
-      ignore_errors: yes
-
-    - name: Remove stopped container
-      command: docker rm getting-started
-      ignore_errors: yes
-
-    - name: Remove getting-started-image
-      command: docker rmi salah9999/getting-started
-      ignore_errors: yes
-
-    - name: Build Docker image using the Dockerfile
+ - name: Build Docker image using the Dockerfile
       command: docker build -t salah9999/getting-started .
       args:
         chdir: /path/to/your/dockerfile/directory
