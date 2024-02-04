@@ -1,5 +1,5 @@
 - name: "Build and deploy a container with Ansible"
-  hosts:   # Specify the target group from your inventory
+  hosts: your_target_group    # Specify the target group from your inventory
   tasks:
     - name: Stop and remove existing container
       docker_container:
