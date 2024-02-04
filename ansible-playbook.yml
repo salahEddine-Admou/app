@@ -22,14 +22,5 @@
       args:
         chdir: /path/to/your/dockerfile/directory
 
-    - name: Log in to DockerHub
-      ansible.builtin.docker_login:
-        username: salah9999
-        password: dckr_pat_wGYNFI5ppX-Y80NLycVFbRpwrXg
-        ignore_errors: yes
-
-    - name: Push image to DockerHub
-      command: docker push salah9999/getting-started
-
     - name: Run container
       command: docker run -d --name getting-started -p 5000:80 salah9999/getting-started
