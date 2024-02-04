@@ -3,8 +3,6 @@
   tasks:
  - name: Build Docker image using the Dockerfile
       command: docker build -t salah9999/getting-started .
-      args:
-        chdir: /path/to/your/dockerfile/directory
-
-    - name: Run container
+      
+- name: Run container
       command: docker run -d --name getting-started -p 5000:80 salah9999/getting-started
