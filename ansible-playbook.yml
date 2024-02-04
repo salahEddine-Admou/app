@@ -21,7 +21,7 @@
       command: docker build -t salah9999/getting-started .
 
     - name: Log in to DockerHub
-      command: docker login -u salah9999 -p K2Ga5qa^AG6j58W
+      command: docker login -u salah9999 -p dckr_pat_wGYNFI5ppX-Y80NLycVFbRpwrXg
       ignore_errors: yes
 
     - name: Push image to DockerHub
