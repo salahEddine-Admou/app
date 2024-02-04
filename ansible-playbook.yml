@@ -19,8 +19,6 @@
 
     - name: Build Docker image using the Dockerfile
       command: docker build -t salah9999/getting-started .
-      args:
-        chdir: /path/to/your/Dockerfile/directory  # Specify the path to your Dockerfile
 
     - name: Log in to DockerHub
       command: docker login -u salah9999 -p K2Ga5qa^AG6j58W
