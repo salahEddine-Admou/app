@@ -1,9 +1,17 @@
 - name: "Build and deploy a container with Ansible"
-  hosts: http://54.226.98.29  # Specify the target hosts or groups here
+  hosts: 54.226.98.29  # Specify the target group from your inventory
   tasks:
+    - name: Stop and remove existing container
+      docker_container:
+        name: getting-started
+        state: stopped
+        force_kill: yes
+        remove: yes
+
     - name: Build Docker image using the Dockerfile
       command: docker build -t salah9999/getting-started .
-      
+
     - name: Run container
       command: docker run -d --name getting-started -p 5000:80 salah9999/getting-started
+
 
