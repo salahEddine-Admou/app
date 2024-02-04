@@ -1,33 +1,36 @@
 ---
-- name: "Build a container with ansible"
+- name: "Build and deploy a container with Ansible"
   hosts: localhost
-  connection: local
+  become: true  # Run tasks with elevated privileges (sudo)
+
   tasks:
-    - name: stop current running container
+    - name: Stop current running container
       command: docker stop getting-started
       ignore_errors: yes
 
-    - name: remove stopped container
+    - name: Remove stopped container
       command: docker rm getting-started
       ignore_errors: yes
 
-    - name: remove getting-started-image
+    - name: Remove getting-started-image
       command: docker rmi salah9999/getting-started
       ignore_errors: yes
 
-    - name: build docker image using the Dockerfile
+    - name: Build Docker image using the Dockerfile
       command: docker build -t salah9999/getting-started .
+      args:
+        chdir: /path/to/your/Dockerfile/directory  # Specify the path to your Dockerfile
 
     - name: Log in to DockerHub
       command: docker login -u salah9999 -p K2Ga5qa^AG6j58W
       ignore_errors: yes
 
-    - name: Push Image to DockerHub
+    - name: Push image to DockerHub
       command: docker push salah9999/getting-started
 
     - name: Log out from DockerHub
       command: docker logout
       ignore_errors: yes
 
-    - name: run container
+    - name: Run container
       command: docker run -d --name getting-started -p 5000:80 salah9999/getting-started
