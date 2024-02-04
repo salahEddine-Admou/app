@@ -1,7 +1,6 @@
 ---
 - name: "Build and deploy a container with Ansible"
   hosts: localhost
-  gather_facts: false
   become: true  # Run tasks with elevated privileges (sudo)
 
   tasks:
