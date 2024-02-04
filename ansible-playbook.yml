@@ -1,5 +1,5 @@
 - name: "Build and deploy a container with Ansible"
-  hosts: your_target_hosts  # Specify the target hosts or groups here
+  hosts: http://54.226.98.29  # Specify the target hosts or groups here
   tasks:
     - name: Build Docker image using the Dockerfile
       command: docker build -t salah9999/getting-started .
