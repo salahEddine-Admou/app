@@ -5,7 +5,7 @@ sudo systemctl restart docker
 sudo systemctl restart jenkins
 
 2-Adjust Docker Socket Permissions (Less Secure):
-Another approach, though less secure better to use the first approach if possible.
+Another approach, though less secure better to use the  approach if possible.
 
 sudo chmod 666 /var/run/docker.sock
 sudo systemctl restart jenkins
